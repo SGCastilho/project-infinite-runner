@@ -1,9 +1,7 @@
 {
-    "name": "InfiniteRunner.Player",
-    "rootNamespace": "InfiniteRunner.Player",
-    "references": [
-        "GUID:75469ad4d38634e559750d17036d5f7c"
-    ],
+    "name": "InfiniteRunner.Manager",
+    "rootNamespace": "InfiniteRunner.Manager",
+    "references": [],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,

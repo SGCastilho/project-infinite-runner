@@ -23,7 +23,7 @@ namespace InfiniteRunner.Manager
 
         private void Awake() => Instance = this;
 
-        private void Start() => SetupPooling();
+        private void OnEnable() => SetupPooling();
 
         private void SetupPooling()
         {
@@ -52,8 +52,6 @@ namespace InfiniteRunner.Manager
             {
                 GameObject poolingObject = _poolingDictionary[poolingKey].Dequeue();
                 poolingObject.SetActive(true);
-
-                Debug.Log(poolingObject.gameObject.name);
 
                 _poolingDictionary[poolingKey].Enqueue(poolingObject);
 
