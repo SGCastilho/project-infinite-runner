@@ -4,25 +4,34 @@ namespace InfiniteRunner.Player
 {
     public sealed class PlayerInputs : MonoBehaviour
     {
+        [SerializeField] private PlayerBehaviour _playerBehaviour;
+
         private PlayerInputActions _inputActions;
 
         private void Awake() => _inputActions = new PlayerInputActions();
 
         private void OnEnable() 
         {
-            SetupInputEvents(true);
             _inputActions.Enable();
+            SetupInputEvents(true);
         }
 
         private void OnDisable() 
         {
-            SetupInputEvents(false);
             _inputActions.Disable();
+            SetupInputEvents(false);
         }
 
         private void SetupInputEvents(bool setup)
         {
-            //Set input events
+            if(setup)
+            {
+                _inputActions.Gameplay.Jump.performed += ctx => _playerBehaviour.PlayerMoviment.Jump();
+            }
+            else
+            {
+                _inputActions.Gameplay.Jump.performed -= ctx => _playerBehaviour.PlayerMoviment.Jump();
+            }
         }
     }
 }
