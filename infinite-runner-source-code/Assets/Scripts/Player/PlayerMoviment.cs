@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace InfiniteRunner.Player
+namespace InfinityRunner.Player
 {
     [RequireComponent(typeof(CharacterController))]
     public sealed class PlayerMoviment : MonoBehaviour

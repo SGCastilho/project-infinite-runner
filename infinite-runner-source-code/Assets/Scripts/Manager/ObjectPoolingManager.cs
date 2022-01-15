@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace InfiniteRunner.Manager
+namespace InfinityRunner.Manager
 {
     public sealed class ObjectPoolingManager : MonoBehaviour
     {

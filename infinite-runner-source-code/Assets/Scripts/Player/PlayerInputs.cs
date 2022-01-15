@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace InfiniteRunner.Player
+namespace InfinityRunner.Player
 {
     public sealed class PlayerInputs : MonoBehaviour
     {

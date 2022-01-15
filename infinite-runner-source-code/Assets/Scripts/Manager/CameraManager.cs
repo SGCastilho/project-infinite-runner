@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace InfiniteRunner.Manager
+namespace InfinityRunner.Manager
 {
     public sealed class CameraManager : MonoBehaviour
     {
