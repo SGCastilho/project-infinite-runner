@@ -154,10 +154,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _poolingObjects:
   - _poolingKey: Simple_Ground
-    _poolingInstances: 12
+    _poolingInstances: 24
     _poolingPrefab: {fileID: 8049728322116251738, guid: 98136c583e9f5414a959ab026ba8a39d, type: 3}
   - _poolingKey: Simple_Ground2
-    _poolingInstances: 12
+    _poolingInstances: 24
     _poolingPrefab: {fileID: 7316162047093170427, guid: be6e7db240a17cb488a123bddde6cdb1, type: 3}
 --- !u!4 &8342895
 Transform:
@@ -494,11 +494,14 @@ MonoBehaviour:
   - _objectKey: Simple_Ground
     _objectCountMin: 2
     _objectCountMax: 3
+    _objectSize: 12
   - _objectKey: Simple_Ground2
     _objectCountMin: 1
     _objectCountMax: 2
+    _objectSize: 12
   _holeSizeMin: 6
   _holeSizeMax: 8
+  _runGeneration: 
   _lastGenerationX: 0
 --- !u!4 &1120422143
 Transform:
