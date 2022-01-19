@@ -2,6 +2,7 @@ using System.Linq;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using InfinityRunner.Triggers;
+using SGC.SDK.Managers;
 using UnityEngine;
 
 namespace InfinityRunner.Manager
@@ -50,7 +51,11 @@ namespace InfinityRunner.Manager
         {
             await GenerateRunSequence();
 
+            VisualDebugManager.Instance.VisualDebugLog("Run Sequence Generated");
+
             await GeneratePercurseSequence();
+
+            VisualDebugManager.Instance.VisualDebugLog("Percurse Generated");
         }
 
         async Task GenerateRunSequence()
