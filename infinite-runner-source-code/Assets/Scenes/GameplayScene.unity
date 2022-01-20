@@ -156,9 +156,9 @@ MonoBehaviour:
   - _poolingKey: Simple_Ground
     _poolingInstances: 12
     _poolingPrefab: {fileID: 8049728322116251738, guid: 98136c583e9f5414a959ab026ba8a39d, type: 3}
-  - _poolingKey: Simple_Ground2
+  - _poolingKey: Simple_WallDestructive
     _poolingInstances: 12
-    _poolingPrefab: {fileID: 7316162047093170427, guid: be6e7db240a17cb488a123bddde6cdb1, type: 3}
+    _poolingPrefab: {fileID: 6715220302720606023, guid: 0c64ddb983153fa42adbae082a6578df, type: 3}
   - _poolingKey: Projectile_Default
     _poolingInstances: 48
     _poolingPrefab: {fileID: 1899557995041281568, guid: 445d5e2b124c96644be18e3b1b670ade, type: 3}
@@ -274,8 +274,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _characterController: {fileID: 360694387}
-  _movementSpeed: 12
-  _playerJumpCount: 2
+  _movementSpeed: 6
+  _playerJumpCount: 3
   _maxHeight: 3
   _timeToPeak: 0.34
 --- !u!114 &360694389
@@ -644,7 +644,7 @@ MonoBehaviour:
     _objectCountMin: 2
     _objectCountMax: 3
     _objectSize: 12
-  - _objectKey: Simple_Ground2
+  - _objectKey: Simple_WallDestructive
     _objectCountMin: 1
     _objectCountMax: 2
     _objectSize: 12

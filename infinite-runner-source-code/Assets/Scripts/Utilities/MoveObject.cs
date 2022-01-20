@@ -12,11 +12,11 @@ namespace InfinityRunner.Utilities
         }
 
         [Header("Moviment Settings")]
-        [SerializeField] [Range(12f, 28f)] private float _movementSpeed = 12f;
+        [SerializeField] [Range(28f, 36f)] private float _movementSpeed = 12f;
         [SerializeField] private MoveDirection _moveDirection = MoveDirection.RIGHT;
 
         [Header("Disable Settings")]
-        [SerializeField] [Range(6f, 12f)] private float _disableTime = 6f;
+        [SerializeField] [Range(2f, 12f)] private float _disableTime = 6f;
 
         private void OnEnable() => StartCoroutine(DisableTimer());
 

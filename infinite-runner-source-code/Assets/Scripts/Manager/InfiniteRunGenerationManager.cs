@@ -106,7 +106,7 @@ namespace InfinityRunner.Manager
 
                 plataform.transform.position = new Vector3(_lastGenerationX, plataform.transform.position.y, plataform.transform.position.z);
 
-                if(i >= objectCount-1)
+                if(i >= objectCount-1 && percurseID < 1)
                 {
                     plataform.GetComponentInChildren<DisableTrigger>().generationTrigger = true;
                 }

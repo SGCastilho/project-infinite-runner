@@ -6,6 +6,8 @@ namespace InfinityRunner.Triggers
 {
     public sealed class DisableTrigger : MonoBehaviour
     {
+        [SerializeField] private Transform _disableParent;
+
         public bool generationTrigger = false;
 
         private void OnTriggerExit(Collider other) 
@@ -13,11 +15,12 @@ namespace InfinityRunner.Triggers
             if(other.CompareTag("Player"))
             {
                 if(generationTrigger)
+                {
                     InfiniteRunGenerationManager.Instance.GenerateNextRun();
                     generationTrigger = false;
+                }
 
-                Transform parent = transform.parent;
-                parent.gameObject.AddComponent<DisableObject>();
+                _disableParent.gameObject.AddComponent<DisableObject>();
             }
         }
     }
