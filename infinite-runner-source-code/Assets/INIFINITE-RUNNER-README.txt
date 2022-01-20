@@ -1,6 +1,7 @@
 RunGenerationInfo
 
 Proximos passos:
+Criar barreiras destrutiveis
 
 Criar dificuldade dinamica na corrida.
     -A dificuldade ira de 1 a 6(a definir)

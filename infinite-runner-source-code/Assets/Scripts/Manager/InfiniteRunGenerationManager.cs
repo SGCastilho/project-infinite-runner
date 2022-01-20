@@ -51,11 +51,7 @@ namespace InfinityRunner.Manager
         {
             await GenerateRunSequence();
 
-            VisualDebugManager.Instance.VisualDebugLog("Run Sequence Generated");
-
             await GeneratePercurseSequence();
-
-            VisualDebugManager.Instance.VisualDebugLog("Percurse Generated");
         }
 
         async Task GenerateRunSequence()

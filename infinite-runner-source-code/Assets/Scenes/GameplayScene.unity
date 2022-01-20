@@ -154,11 +154,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _poolingObjects:
   - _poolingKey: Simple_Ground
-    _poolingInstances: 24
+    _poolingInstances: 12
     _poolingPrefab: {fileID: 8049728322116251738, guid: 98136c583e9f5414a959ab026ba8a39d, type: 3}
   - _poolingKey: Simple_Ground2
-    _poolingInstances: 24
+    _poolingInstances: 12
     _poolingPrefab: {fileID: 7316162047093170427, guid: be6e7db240a17cb488a123bddde6cdb1, type: 3}
+  - _poolingKey: Projectile_Default
+    _poolingInstances: 48
+    _poolingPrefab: {fileID: 1899557995041281568, guid: 445d5e2b124c96644be18e3b1b670ade, type: 3}
 --- !u!4 &8342895
 Transform:
   m_ObjectHideFlags: 0
@@ -173,6 +176,36 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &49216851
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 49216852}
+  m_Layer: 0
+  m_Name: RightShootingPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &49216852
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 49216851}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -0.2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1399427349}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &360694385
 GameObject:
   m_ObjectHideFlags: 0
@@ -186,6 +219,7 @@ GameObject:
   - component: {fileID: 360694389}
   - component: {fileID: 360694387}
   - component: {fileID: 360694388}
+  - component: {fileID: 360694391}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -205,6 +239,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 543450652909916090}
+  - {fileID: 1399427349}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -239,7 +274,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _characterController: {fileID: 360694387}
-  _movementSpeed: 6
+  _movementSpeed: 12
   _playerJumpCount: 2
   _maxHeight: 3
   _timeToPeak: 0.34
@@ -270,6 +305,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerInputs: {fileID: 360694389}
   _playerMoviment: {fileID: 360694388}
+  _playerShoot: {fileID: 360694391}
+--- !u!114 &360694391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 360694385}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffad5717f898b6f4380cdc8223d9d90e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _projectileKey: Projectile_Default
+  _shootingPoints:
+  - {fileID: 49216852}
+  - {fileID: 1426775327}
+  _shootingRate: 0.12
 --- !u!1 &650216091
 GameObject:
   m_ObjectHideFlags: 0
@@ -613,6 +666,68 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1399427348
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1399427349}
+  m_Layer: 0
+  m_Name: ShootingPoints
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1399427349
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1399427348}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.48, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 49216852}
+  - {fileID: 1426775327}
+  m_Father: {fileID: 360694386}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1426775326
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1426775327}
+  m_Layer: 0
+  m_Name: LeftShootingPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1426775327
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1426775326}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1399427349}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1658964676
 GameObject:
   m_ObjectHideFlags: 0
@@ -936,6 +1051,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 963194227}
+    - target: {fileID: 6586797406372038778, guid: fadb472880c509e4aab93f56d546d53d, type: 3}
+      propertyPath: m_AdditionalShaderChannelsFlag
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 6586797406372038781, guid: fadb472880c509e4aab93f56d546d53d, type: 3}
       propertyPath: m_Name
       value: SDK_VisualDebug_Canvas

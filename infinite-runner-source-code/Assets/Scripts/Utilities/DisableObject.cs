@@ -10,7 +10,9 @@ namespace InfinityRunner.Utilities
         private async void FromTime()
         {
             await Task.Delay(1000);
-            gameObject.SetActive(false);
+
+            try{ gameObject.SetActive(false); }
+            catch { return; }
         }
     }
 }

@@ -27,10 +27,12 @@ namespace InfinityRunner.Player
             if(setup)
             {
                 _inputActions.Gameplay.Jump.performed += ctx => _playerBehaviour.PlayerMoviment.Jump();
+                _inputActions.Gameplay.Shoot.performed += ctx => _playerBehaviour.PlayerShoot.Shoot();
             }
             else
             {
                 _inputActions.Gameplay.Jump.performed -= ctx => _playerBehaviour.PlayerMoviment.Jump();
+                _inputActions.Gameplay.Shoot.performed -= ctx => _playerBehaviour.PlayerShoot.Shoot();
             }
         }
     }
