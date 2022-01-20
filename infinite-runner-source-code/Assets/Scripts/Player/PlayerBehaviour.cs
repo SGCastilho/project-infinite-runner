@@ -4,6 +4,10 @@ namespace InfinityRunner.Player
 {
     public sealed class PlayerBehaviour : MonoBehaviour
     {
+        #region SINGLETON
+        public static PlayerBehaviour Instance { get; private set; }
+        #endregion
+
         [Header("Player Scripts")]
         [SerializeField] private PlayerInputs _playerInputs;
         [SerializeField] private PlayerMoviment _playerMoviment;
@@ -12,5 +16,7 @@ namespace InfinityRunner.Player
         public PlayerInputs PlayerInputs { get { return _playerInputs; } }
         public PlayerMoviment PlayerMoviment { get { return _playerMoviment; } }
         public PlayerShoot PlayerShoot { get { return _playerShoot; } }
+
+        private void Awake() => Instance = this;
     }
 }

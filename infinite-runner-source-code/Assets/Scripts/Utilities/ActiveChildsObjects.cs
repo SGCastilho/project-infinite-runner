@@ -1,4 +1,3 @@
-using SGC.SDK.Managers;
 using UnityEngine;
 
 namespace InfinityRunner.Utilities
@@ -18,7 +17,6 @@ namespace InfinityRunner.Utilities
                     if(_childToActive[i].gameObject.activeInHierarchy == false)
                     {
                         _childToActive[i].gameObject.SetActive(true);
-                        VisualDebugManager.Instance.VisualDebugLog(_childToActive[i].gameObject.name + " foi ativado.");
                     }
                 }
             }

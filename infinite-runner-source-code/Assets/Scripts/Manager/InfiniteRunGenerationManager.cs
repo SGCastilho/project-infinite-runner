@@ -17,8 +17,9 @@ namespace InfinityRunner.Manager
         public sealed class ObjectGeneration
         {
             public string _objectKey;
-            [Range(1, 6)] public int _objectCountMin;
-            [Range(1, 6)] public int _objectCountMax;
+            public int _objectCountMin;
+            public int _objectCountMax;
+            public int _maxObjectPerRun = 6;
             public float _objectSize;
         }
         
@@ -28,6 +29,14 @@ namespace InfinityRunner.Manager
         [Header("Hole generation Settings")]
         [SerializeField] [Range(6, 24)] private int _holeSizeMin = 6;
         [SerializeField] [Range(6, 24)] private int _holeSizeMax = 6;
+        public int IncreaseHoleSize 
+        { 
+            set 
+            { 
+                _holeSizeMax += value;
+                VisualDebugManager.Instance.VisualDebugLog("O tamanho do buraco foi aumentado: " + _holeSizeMax);
+            }  
+        }
 
         [SerializeField] private int[] _runGeneration;
         [SerializeField] private float _lastGenerationX;
@@ -149,5 +158,23 @@ namespace InfinityRunner.Manager
             await Task.Yield();
         }
         #endregion
+
+        public void IncreaseObjectsGeneration(int amount, string objectKey)
+        {
+            foreach(ObjectGeneration obj in _objectGeneration)
+            {
+                if(obj._objectKey == objectKey)
+                {
+                    obj._objectCountMax += amount;
+                    if(obj._objectCountMax > obj._maxObjectPerRun)
+                    {
+                        obj._objectCountMax = obj._maxObjectPerRun;
+                    }
+
+                    VisualDebugManager.Instance.VisualDebugLog(objectKey + " foi incrementado com sucesso!");
+                    break;
+                }
+            }
+        }
     }
 }

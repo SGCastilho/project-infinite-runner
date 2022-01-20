@@ -1,3 +1,4 @@
+using SGC.SDK.Managers;
 using UnityEngine;
 
 namespace InfinityRunner.Player
@@ -8,7 +9,9 @@ namespace InfinityRunner.Player
         [SerializeField] private CharacterController _characterController;
 
         [Header("Player Moviment Settings")]
-        [SerializeField] [Range(6f, 40f)] private float _movementSpeed = 20f;
+        [SerializeField] [Range(6f, 20f)] private float _movementSpeed = 6f;
+        [SerializeField] private float _maxMovementSpeed = 20f;
+
         [SerializeField] [Range(1, 3)] private int _playerJumpCount = 2;
         private int _playerCurrentJumpCount;
         private Vector3 _xVelocity;
@@ -60,6 +63,17 @@ namespace InfinityRunner.Player
                 _playerCurrentJumpCount++;
                 _yVelocity = _jumpSpeed * Vector3.up;
             }
+        }
+
+        public void IncreaseMovementSpeed(float amount)
+        {
+            _movementSpeed += amount;
+            if(_movementSpeed > _maxMovementSpeed)
+            {
+                _movementSpeed = _maxMovementSpeed;
+            }
+
+            VisualDebugManager.Instance.VisualDebugLog("Velocidade do Player Aumentada: " + _movementSpeed);
         }
     }
 }
