@@ -21,6 +21,7 @@ namespace InfinityRunner.Manager
 
         [Header("Difficult Settings")]
         [SerializeField] private int _currentDifficult;
+        internal int CurrentDifficult { get { return _currentDifficult; } }
         [SerializeField] private int _minDifficult = 0;
         [SerializeField] private int _maxDifficult = 6;
 
@@ -58,6 +59,8 @@ namespace InfinityRunner.Manager
                 }
 
                 InfiniteRunGenerationManager.Instance.IncreaseHoleSize = _holeSizeIncrease;
+
+                ScoreManager.Instace.IncreasePassiveScore();
 
                 _currentDifficult++;
                 if(_currentDifficult > _maxDifficult) { _currentDifficult = _maxDifficult; }

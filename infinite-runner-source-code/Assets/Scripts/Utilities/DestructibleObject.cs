@@ -1,3 +1,4 @@
+using InfinityRunner.Manager;
 using UnityEngine;
 
 namespace InfinityRunner.Utilities
@@ -7,6 +8,7 @@ namespace InfinityRunner.Utilities
         [Header("Destructible Settings")]
         [SerializeField] [Range(2, 12)] private int _destructibleHealth = 2;
         private int _currentDestructibleHealth;
+        [SerializeField] private int _destructibleReward;
 
         private void OnEnable() => _currentDestructibleHealth = _destructibleHealth;
 
@@ -16,6 +18,7 @@ namespace InfinityRunner.Utilities
             if(_currentDestructibleHealth <= 0)
             {
                 _currentDestructibleHealth = 0;
+                ScoreManager.Instace.IncreasePlayerScore(ref _destructibleReward);
                 gameObject.SetActive(false);
             }
         }

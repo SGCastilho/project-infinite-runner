@@ -347,6 +347,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _destructibleHealth: 2
+  _destructibleReward: 20
 --- !u!65 &6715220302570716305
 BoxCollider:
   m_ObjectHideFlags: 0

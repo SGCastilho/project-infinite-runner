@@ -159,6 +159,9 @@ MonoBehaviour:
   - _poolingKey: Simple_WallDestructive
     _poolingInstances: 12
     _poolingPrefab: {fileID: 6715220302720606023, guid: 0c64ddb983153fa42adbae082a6578df, type: 3}
+  - _poolingKey: Collectable_Coin
+    _poolingInstances: 12
+    _poolingPrefab: {fileID: 1259518031974763445, guid: 600a15e7f094b344ab39069e18a245eb, type: 3}
   - _poolingKey: Projectile_Default
     _poolingInstances: 48
     _poolingPrefab: {fileID: 1899557995041281568, guid: 445d5e2b124c96644be18e3b1b670ade, type: 3}
@@ -534,6 +537,36 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &806754739
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 806754741}
+  m_Layer: 0
+  m_Name: GameplayEventManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &806754741
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 806754739}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &955091059
 GameObject:
   m_ObjectHideFlags: 0
@@ -870,7 +903,59 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 16
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2084976066
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2084976068}
+  - component: {fileID: 2084976067}
+  m_Layer: 0
+  m_Name: ScoreManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2084976067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2084976066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5203aa51d25b89e488852c2b675aceba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerScore: 0
+  _passiveScoreIncrease: 6
+  _passiveScoreTimer: 2
+  _passiveScoreTimerReduction: 0.2
+  _minPassiveScoreTimer: 0.1
+  _scoreMultiply: 0
+  _scoreMultiplyIncrease: 0.2
+  _maxScoreMultiply: 1
+  _scoreToChangeDifficult: 780000005401000058020000e8030000d0070000100e0000
+--- !u!4 &2084976068
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2084976066}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &543450652909916090
 Transform:
@@ -954,7 +1039,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2065988319054045174, guid: eb42971fce71cba4dbf136257565a5ba, type: 3}
       propertyPath: m_RootOrder
-      value: 13
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 2065988319054045174, guid: eb42971fce71cba4dbf136257565a5ba, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1124,7 +1209,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7408537943279048928, guid: 9ceb9615f6e1c4b43acf57a764553581, type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 7408537943279048928, guid: 9ceb9615f6e1c4b43acf57a764553581, type: 3}
       propertyPath: m_LocalPosition.x

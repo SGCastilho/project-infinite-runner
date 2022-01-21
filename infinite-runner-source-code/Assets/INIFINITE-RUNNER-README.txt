@@ -1,14 +1,10 @@
 RunGenerationInfo
 
 Proximos passos:
-Criar dificuldade dinamica na corrida.
-    -A dificuldade ira de 1 a 6(a definir)
-    -A cada escalada de dificuldade as seguintes coisas aconteceram
-        -O jogador ficará mais rapido
-        -O tamanho dos buracos seram maiores
+Fazer com que as paredes só recebam dano se o jogador estiver em uma certa distância
 
-Ativação da dificuldade dinamica se baseará nos pontos que o jogador obteve durante a corrida.
-    Forma de ganhar pontos
-        -Pela distancia percorrida
-        -Ao destruir barreiras
-        -Ao coletar colecionaveis(moedas)
+Adicionar as moedas para a geração da corrida.
+
+Fazer o jogador perder o jogo
+    -Ao cair no buraco
+    -Ao colidir com paredes / objectos perigosos
