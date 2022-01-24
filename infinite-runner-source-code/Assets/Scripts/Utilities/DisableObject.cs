@@ -1,4 +1,5 @@
 using System.Threading.Tasks;
+using InfinityRunner.Player;
 using UnityEngine;
 
 namespace InfinityRunner.Utilities
@@ -11,8 +12,15 @@ namespace InfinityRunner.Utilities
         {
             await Task.Delay(1000);
 
-            try{ gameObject.SetActive(false); }
-            catch { return; }
+            if(!PlayerBehaviour.Instance.IsDead)
+            {
+                try
+                { 
+                    gameObject.SetActive(false);
+                    Destroy(gameObject.GetComponent<DisableObject>()); 
+                }
+                catch { return; }
+            }
         }
     }
 }

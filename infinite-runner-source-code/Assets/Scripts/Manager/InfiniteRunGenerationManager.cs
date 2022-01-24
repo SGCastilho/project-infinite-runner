@@ -16,17 +16,27 @@ namespace InfinityRunner.Manager
         [System.Serializable]
         public sealed class ObjectGeneration
         {
+            [Header("Object Settings")]
             public string _objectKey;
             public int _objectCountMin;
             public int _objectCountMax;
             public int _maxObjectPerRun = 6;
             public float _objectSize;
+
+            [Header("Collectables Settings")]
+            public bool _spawnCollectable = true;
         }
         
         [Header("Objects Generation Settings")]
         [SerializeField] private List<ObjectGeneration> _objectGeneration;
 
-        [Header("Hole generation Settings")]
+        [Header("Collectables Generation Settings")]
+        [SerializeField] private int _maxCollectableGenerated = 4;
+        [SerializeField] private int _minCollectableGenerated = 6;
+        [SerializeField] [Range(0.7f, 1.2f)] private float _minCollectableSpacing = 0.7f;
+        [SerializeField] [Range(0.7f, 1.2f)] private float _maxCollectableSpacing = 1.0f;
+
+        [Header("Hole Generation Settings")]
         [SerializeField] [Range(6, 24)] private int _holeSizeMin = 6;
         [SerializeField] [Range(6, 24)] private int _holeSizeMax = 6;
         public int IncreaseHoleSize 
@@ -109,6 +119,8 @@ namespace InfinityRunner.Manager
         {
             int objectCount = Random.Range(_objectGeneration[percurseID]._objectCountMin, _objectGeneration[percurseID]._objectCountMax);
 
+            bool generateCollectables = false;
+
             for(int i = 0; i < objectCount; i++)
             {
                 GameObject plataform = ObjectPoolingManager.Instance.SpawnPooling(_objectGeneration[percurseID]._objectKey);
@@ -118,6 +130,44 @@ namespace InfinityRunner.Manager
                 if(i >= objectCount-1 && percurseID < 1)
                 {
                     plataform.GetComponentInChildren<DisableTrigger>().generationTrigger = true;
+                }
+
+                if(_objectGeneration[percurseID]._spawnCollectable && i >= 1 && generateCollectables == false)
+                {
+                    Transform platafromPos = plataform.transform;
+
+                    int collectableGenerated = Random.Range(_minCollectableGenerated, _maxCollectableGenerated);
+                    float collectableSpacing = Random.Range(_minCollectableSpacing, _maxCollectableSpacing);
+
+                    float lastCollectableSpacing = 0;
+
+                    for(int j = 0; j < collectableGenerated; j++)
+                    {
+                        GameObject collectable = ObjectPoolingManager.Instance.SpawnPooling("Collectable_Coin");
+
+                        collectable.transform.position = platafromPos.position;
+
+                        if(j < 1) 
+                        {
+                            Vector3 collectablePos = new Vector3(collectable.transform.position.x - collectableSpacing, 1.6f,
+                            collectable.transform.position.z); 
+
+                            lastCollectableSpacing = collectablePos.x;
+
+                            collectable.transform.position = collectablePos;
+                        }
+                        else
+                        {
+                            Vector3 collectablePos = new Vector3(lastCollectableSpacing + collectableSpacing, 1.6f, 
+                            collectable.transform.position.z);
+
+                            lastCollectableSpacing = collectablePos.x; 
+
+                            collectable.transform.position = collectablePos;
+                        }
+                    }
+
+                    generateCollectables = true;
                 }
 
                 _lastGenerationX = plataform.transform.position.x + _objectGeneration[percurseID]._objectSize;
@@ -144,15 +194,21 @@ namespace InfinityRunner.Manager
         #region Hole Generation Functions
         async Task GenerateHoleGround()
         {
-            float holeSize = Random.Range(_holeSizeMin, _holeSizeMax) + _lastGenerationX;
+            float holeSize = Random.Range(_holeSizeMin, _holeSizeMax);
 
-            _lastGenerationX = holeSize;
+            GameObject deathTrigger = ObjectPoolingManager.Instance.SpawnPooling("Trigger_Death");
+            deathTrigger.transform.localPosition = new Vector3(_lastGenerationX-holeSize, -2.8f, deathTrigger.transform.position.z);
+
+            _lastGenerationX += holeSize;
 
             await Task.Yield();
         }
 
         async Task GenerateHoleGround(int specificSize)
         {
+            GameObject deathTrigger = ObjectPoolingManager.Instance.SpawnPooling("Trigger_Death");
+            deathTrigger.transform.localPosition = new Vector3(_lastGenerationX-specificSize, -2.8f, deathTrigger.transform.position.z);
+
             _lastGenerationX += specificSize;
 
             await Task.Yield();

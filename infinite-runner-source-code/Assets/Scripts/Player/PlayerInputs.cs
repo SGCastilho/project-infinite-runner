@@ -35,5 +35,11 @@ namespace InfinityRunner.Player
                 _inputActions.Gameplay.Shoot.performed -= ctx => _playerBehaviour.PlayerShoot.Shoot();
             }
         }
+
+        public void GameplayInputs(bool enable)
+        {
+            if(enable) { _inputActions.Gameplay.Enable(); }
+            else { _inputActions.Gameplay.Disable(); }
+        }
     }
 }

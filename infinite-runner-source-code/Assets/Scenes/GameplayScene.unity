@@ -159,8 +159,11 @@ MonoBehaviour:
   - _poolingKey: Simple_WallDestructive
     _poolingInstances: 12
     _poolingPrefab: {fileID: 6715220302720606023, guid: 0c64ddb983153fa42adbae082a6578df, type: 3}
+  - _poolingKey: Trigger_Death
+    _poolingInstances: 6
+    _poolingPrefab: {fileID: 8249800434758074039, guid: 8166efffbc32d924d90d702703b3cc36, type: 3}
   - _poolingKey: Collectable_Coin
-    _poolingInstances: 12
+    _poolingInstances: 26
     _poolingPrefab: {fileID: 1259518031974763445, guid: 600a15e7f094b344ab39069e18a245eb, type: 3}
   - _poolingKey: Projectile_Default
     _poolingInstances: 48
@@ -730,11 +733,17 @@ MonoBehaviour:
     _objectCountMax: 3
     _maxObjectPerRun: 2
     _objectSize: 12
+    _spawnCollectable: 1
   - _objectKey: Simple_WallDestructive
     _objectCountMin: 1
     _objectCountMax: 2
     _maxObjectPerRun: 4
     _objectSize: 12
+    _spawnCollectable: 0
+  _maxCollectableGenerated: 5
+  _minCollectableGenerated: 4
+  _minCollectableSpacing: 1
+  _maxCollectableSpacing: 1.06
   _holeSizeMin: 6
   _holeSizeMax: 8
   _runGeneration: 

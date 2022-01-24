@@ -167,6 +167,7 @@ GameObject:
   - component: {fileID: 6715220302085539786}
   - component: {fileID: 6715220302085539797}
   - component: {fileID: 6715220302085539796}
+  - component: {fileID: 3344709161987479348}
   m_Layer: 0
   m_Name: Wall
   m_TagString: Untagged
@@ -245,11 +246,23 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6715220302085539798}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &3344709161987479348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6715220302085539798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9102605a98685c74c89b0f78baaaacfd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6715220302570716307
 GameObject:
   m_ObjectHideFlags: 0
@@ -263,6 +276,7 @@ GameObject:
   - component: {fileID: 6715220302570716310}
   - component: {fileID: 4891986975520603788}
   - component: {fileID: 6715220302570716305}
+  - component: {fileID: 714505791979164552}
   - component: {fileID: 7566658042186864645}
   m_Layer: 0
   m_Name: DestructiveWall
@@ -347,6 +361,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _destructibleHealth: 2
+  _takeDamageRange: 20
   _destructibleReward: 20
 --- !u!65 &6715220302570716305
 BoxCollider:
@@ -356,11 +371,23 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6715220302570716307}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &714505791979164552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6715220302570716307}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9102605a98685c74c89b0f78baaaacfd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!54 &7566658042186864645
 Rigidbody:
   m_ObjectHideFlags: 0
