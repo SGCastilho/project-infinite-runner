@@ -2,7 +2,6 @@ using System.Linq;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using InfinityRunner.Triggers;
-using SGC.SDK.Managers;
 using UnityEngine;
 
 namespace InfinityRunner.Manager
@@ -44,7 +43,6 @@ namespace InfinityRunner.Manager
             set 
             { 
                 _holeSizeMax += value;
-                VisualDebugManager.Instance.VisualDebugLog("O tamanho do buraco foi aumentado: " + _holeSizeMax);
             }  
         }
 
@@ -57,11 +55,13 @@ namespace InfinityRunner.Manager
 
         private async void GenerateStartRun()
         {
-            await GeneratePercurse(0, _objectGeneration[0]._objectCountMin);
+            await GeneratePercurse(0, 4);
 
             await GenerateHoleGround(_holeSizeMin);
 
             await GeneratePercurse(0);
+
+            await GeneratePercurse(1, _objectGeneration[1]._objectCountMin);
 
             GenerateNextRun();
         }
@@ -226,8 +226,6 @@ namespace InfinityRunner.Manager
                     {
                         obj._objectCountMax = obj._maxObjectPerRun;
                     }
-
-                    VisualDebugManager.Instance.VisualDebugLog(objectKey + " foi incrementado com sucesso!");
                     break;
                 }
             }

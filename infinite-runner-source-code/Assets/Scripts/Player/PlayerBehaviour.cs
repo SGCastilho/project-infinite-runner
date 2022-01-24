@@ -8,6 +8,9 @@ namespace InfinityRunner.Player
         public static PlayerBehaviour Instance { get; private set; }
         #endregion
 
+        public delegate void PlayerDead();
+        public event PlayerDead OnPlayerDead;
+
         [Header("Player Scripts")]
         [SerializeField] private PlayerInputs _playerInputs;
         [SerializeField] private PlayerMoviment _playerMoviment;
@@ -28,6 +31,8 @@ namespace InfinityRunner.Player
 
             _playerInputs.GameplayInputs(false);
             gameObject.SetActive(false);
+
+            if(OnPlayerDead != null) { OnPlayerDead(); }
         }
     }
 }

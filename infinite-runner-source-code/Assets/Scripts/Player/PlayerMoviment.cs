@@ -1,4 +1,3 @@
-using SGC.SDK.Managers;
 using UnityEngine;
 
 namespace InfinityRunner.Player
@@ -72,8 +71,6 @@ namespace InfinityRunner.Player
             {
                 _movementSpeed = _maxMovementSpeed;
             }
-
-            VisualDebugManager.Instance.VisualDebugLog("Velocidade do Player Aumentada: " + _movementSpeed);
         }
     }
 }

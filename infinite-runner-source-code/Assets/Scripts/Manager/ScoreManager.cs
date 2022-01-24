@@ -8,8 +8,13 @@ namespace InfinityRunner.Manager
         public static ScoreManager Instace;
         #endregion
 
+        public delegate void ScoreIncrease(ref int currentScore, ref float multiplierScore);
+        public event ScoreIncrease OnScoreIncrease;
+
         [Header("Score Settings")]
         [SerializeField] private int _playerScore;
+        public int PlayerScore { get { return _playerScore; } }
+
         [SerializeField] private int _passiveScoreIncrease = 20;
         [SerializeField] [Range(0.1f, 2.0f)] private float _passiveScoreTimer = 1.0f;
         private float _currentPassiveScoreTimer = 0;
@@ -40,6 +45,7 @@ namespace InfinityRunner.Manager
 
             if(DifficultManager.Instance.CurrentDifficult < 6){ CheckCurrentScore(); }
 
+            if(OnScoreIncrease != null) { OnScoreIncrease(ref _playerScore, ref _scoreMultiply); }
         }
 
         public void IncreasePassiveScore()
@@ -49,6 +55,8 @@ namespace InfinityRunner.Manager
 
             _scoreMultiply += _scoreMultiplyIncrease;
             if(_scoreMultiply > _maxScoreMultiply) { _scoreMultiply = _maxScoreMultiply; }
+
+            if(OnScoreIncrease != null) { OnScoreIncrease(ref _playerScore, ref _scoreMultiply); }
         }
 
         private void ScorePassiveTimer()

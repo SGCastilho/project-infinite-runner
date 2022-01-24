@@ -1,5 +1,4 @@
 using InfinityRunner.Player;
-using SGC.SDK.Managers;
 using UnityEngine;
 
 namespace InfinityRunner.Triggers
@@ -11,8 +10,6 @@ namespace InfinityRunner.Triggers
             if(other.CompareTag("Player"))
             {
                 PlayerBehaviour.Instance.PlayerDeath();
-
-                VisualDebugManager.Instance.VisualDebugLog("Player lost the game!");
             }
         }
     }

@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using SGC.SDK.Managers;
 using InfinityRunner.Player;
 using UnityEngine;
 
@@ -18,6 +17,8 @@ namespace InfinityRunner.Manager
             public int _generationIncrease;
         }
 
+        public delegate void DifficultChange();
+        public event DifficultChange OnDifficultChange;
 
         [Header("Difficult Settings")]
         [SerializeField] private int _currentDifficult;
@@ -38,14 +39,6 @@ namespace InfinityRunner.Manager
 
         private void Start() => _currentDifficult = _minDifficult;
 
-        private void Update() 
-        {
-            if(Input.GetKeyDown(KeyCode.F1))
-            {
-                IncreaseDifficult();
-            }
-        }
-
         public void IncreaseDifficult()
         {
             if(_currentDifficult < _maxDifficult)
@@ -65,7 +58,7 @@ namespace InfinityRunner.Manager
                 _currentDifficult++;
                 if(_currentDifficult > _maxDifficult) { _currentDifficult = _maxDifficult; }
 
-                VisualDebugManager.Instance.VisualDebugLog("Dificuldade aumentada para: " + _currentDifficult);
+                if(OnDifficultChange != null) { OnDifficultChange(); }
             }
         }
     }
