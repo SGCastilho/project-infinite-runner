@@ -24,18 +24,22 @@ namespace InfinityRunner.Manager
 
         private void SetupEvents()
         {
-            _playerBehaviour.OnPlayerDead += _gameManager.FinishGame;
+            _playerBehaviour.OnPlayerDead += _gameManager.RunFinish;
 
             _scoreManager.OnScoreIncrease += _gameplayHUD.RefreshScore;
             _difficultManager.OnDifficultChange += _gameplayHUD.ShowDifficultInformation;
+
+            _gameManager.OnFinishGame += _gameplayHUD.ShowFinishRunWindow;
         }
 
         private void DestroyEvents()
         {
-            _playerBehaviour.OnPlayerDead -= _gameManager.FinishGame;
+            _playerBehaviour.OnPlayerDead -= _gameManager.RunFinish;
 
             _scoreManager.OnScoreIncrease -= _gameplayHUD.RefreshScore;
             _difficultManager.OnDifficultChange -= _gameplayHUD.ShowDifficultInformation;
+
+            _gameManager.OnFinishGame -= _gameplayHUD.ShowFinishRunWindow;
         }
     }
 }

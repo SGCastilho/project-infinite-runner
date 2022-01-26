@@ -30,6 +30,7 @@ namespace InfinityRunner.Player
             _isDead = true;
 
             _playerInputs.GameplayInputs(false);
+            _playerInputs.UIInputs(true);
             gameObject.SetActive(false);
 
             if(OnPlayerDead != null) { OnPlayerDead(); }

@@ -13,6 +13,8 @@ namespace InfinityRunner.Player
         private void OnEnable() 
         {
             _inputActions.Enable();
+            GameplayInputs(true);
+            UIInputs(false);
             SetupInputEvents(true);
         }
 
@@ -40,6 +42,12 @@ namespace InfinityRunner.Player
         {
             if(enable) { _inputActions.Gameplay.Enable(); }
             else { _inputActions.Gameplay.Disable(); }
+        }
+
+        public void UIInputs(bool enable)
+        {
+            if(enable) { _inputActions.UI.Enable(); }
+            else { _inputActions.UI.Disable(); }
         }
     }
 }

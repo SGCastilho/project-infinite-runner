@@ -7,6 +7,7 @@ namespace InfinityRunner.Manager
         [Header("Camera Manager Settings")]
         [SerializeField] private GameObject _followTransform;
         [SerializeField] private float _xOffset;
+        
         private Vector3 _followVector;
 
         private void LateUpdate() 
