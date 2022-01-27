@@ -18,6 +18,9 @@ namespace InfinityRunner.UI
         public void BackToMainMenu()
         {
             _gameplayHUDUI._sceneEventSystem.SetSelectedGameObject(null);
+
+            LoadingManager loadingManager = LoadingManager.Instance;
+            loadingManager.LoadLevel("MainMenu");
         }
     }
 }
