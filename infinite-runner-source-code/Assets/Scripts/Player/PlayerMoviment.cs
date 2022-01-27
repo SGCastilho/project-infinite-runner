@@ -1,3 +1,4 @@
+using DG.Tweening;
 using UnityEngine;
 
 namespace InfinityRunner.Player
@@ -8,8 +9,8 @@ namespace InfinityRunner.Player
         [SerializeField] private CharacterController _characterController;
 
         [Header("Player Moviment Settings")]
-        [SerializeField] [Range(6f, 20f)] private float _movementSpeed = 6f;
-        [SerializeField] private float _maxMovementSpeed = 20f;
+        [SerializeField] [Range(6f, 20f)] private float _movimentSpeed = 6f;
+        [SerializeField] private float _maxMovimentSpeed = 20f;
 
         [SerializeField] [Range(1, 3)] private int _playerJumpCount = 2;
         private int _playerCurrentJumpCount;
@@ -28,7 +29,7 @@ namespace InfinityRunner.Player
 
         private void Update()
         {
-            _xVelocity = Vector3.right * _movementSpeed;
+            _xVelocity = Vector3.right * _movimentSpeed;
 
             _yVelocity += _gravity * Time.deltaTime * Vector3.down;
 
@@ -66,11 +67,15 @@ namespace InfinityRunner.Player
 
         public void IncreaseMovementSpeed(float amount)
         {
-            _movementSpeed += amount;
-            if(_movementSpeed > _maxMovementSpeed)
+            float finalSpeed = _movimentSpeed + amount;
+
+            if(finalSpeed > _maxMovimentSpeed)
             {
-                _movementSpeed = _maxMovementSpeed;
-            }
+                float diference = finalSpeed - _maxMovimentSpeed;
+                finalSpeed -= diference;
+            }            
+
+            DOTween.To(x => _movimentSpeed = x, _movimentSpeed, finalSpeed, 0.6f);
         }
     }
 }

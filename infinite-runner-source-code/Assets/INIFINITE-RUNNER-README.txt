@@ -1,11 +1,18 @@
 RunGenerationInfo
 
 Proximos passos:
-Criar menu principal
-    -Mostrar ao jogador 4 botões
-        -Iniciar corrida
-        -Recordes
-        -Opções
-        -Sair
+Criação do design do personagem principal
+    -Criar conceito
+    -Modelar
+    -Animações
 
-Prototipo finalizado, distribuir para as pessoas testarem!
+Aplicar personagem in-game
+    -Fazer as animações mudarem de velocidade conforme o jogador fica mais rapido
+
+Criação do design das plataformas existentes
+Aplicar plataformas in-game
+
+Criação do design do background
+
+Aplicar background in-game
+    -Usando o mesmo sistema de geração, iremos realocar o background de fundo.

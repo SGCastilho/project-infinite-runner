@@ -781,8 +781,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _characterController: {fileID: 360694387}
-  _movementSpeed: 6
-  _maxMovementSpeed: 18
+  _movimentSpeed: 6
+  _maxMovimentSpeed: 20
   _playerJumpCount: 2
   _maxHeight: 3
   _timeToPeak: 0.34
@@ -3289,7 +3289,7 @@ MonoBehaviour:
   _scoreMultiply: 0
   _scoreMultiplyIncrease: 0.2
   _maxScoreMultiply: 1
-  _scoreToChangeDifficult: 78000000dc000000080200009803000080070000680b0000
+  _scoreToChangeDifficult: 14000000dc000000080200009803000080070000680b0000
 --- !u!4 &2084976068
 Transform:
   m_ObjectHideFlags: 0
@@ -3504,7 +3504,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2065988319054045175, guid: eb42971fce71cba4dbf136257565a5ba, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eb42971fce71cba4dbf136257565a5ba, type: 3}
@@ -3621,7 +3621,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6586797406372038781, guid: fadb472880c509e4aab93f56d546d53d, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fadb472880c509e4aab93f56d546d53d, type: 3}

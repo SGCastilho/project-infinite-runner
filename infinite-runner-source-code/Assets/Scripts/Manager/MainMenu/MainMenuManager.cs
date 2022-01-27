@@ -13,6 +13,11 @@ namespace InfinityRunner.Manager.MainMenu
             _inputActions.Enable();
             _inputActions.Gameplay.Disable();
             _inputActions.UI.Enable();
+
+            //TEMPORARIO PRA CARALHO, PUTA GAMBIARRA
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Confined;
+            //TEMPORARIO PRA CARALHO, PUTA GAMBIARRA
         }
 
         private void OnDisable()

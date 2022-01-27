@@ -60,11 +60,13 @@ namespace InfinityRunner.UI
             _finalScoreTMP.text = "Final Score: " + finalScore;
             _finalRankTMP.text = "Rank: " + finalRank;
 
-            SelectFirstButton(_finishWindowButtons[0]);
-
             await Task.Delay(1200);
 
             _finishWindowGroup.DOFade(1f, 0.2f);
+
+            await Task.Delay(180);
+
+            SelectFirstButton(_finishWindowButtons[0]);
         }
 
         private void SelectFirstButton(GameObject _selectButton)
