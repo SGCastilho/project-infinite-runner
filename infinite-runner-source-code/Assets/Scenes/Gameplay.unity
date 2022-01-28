@@ -1569,6 +1569,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _gameManager: {fileID: 2143139986}
   _scoreManager: {fileID: 2084976067}
+  _infiniteRunGenerationManager: {fileID: 1120422142}
   _difficultManager: {fileID: 236662660}
   _gameplayHUD: {fileID: 1091838570}
 --- !u!4 &806754741

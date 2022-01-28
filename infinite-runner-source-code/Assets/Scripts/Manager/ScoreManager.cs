@@ -11,6 +11,9 @@ namespace InfinityRunner.Manager
         public delegate void ScoreIncrease(ref int currentScore, ref float multiplierScore);
         public event ScoreIncrease OnScoreIncrease;
 
+        public delegate void IncreaseDifficult();
+        public event IncreaseDifficult OnIncreaseDifficult;
+
         [Header("Score Settings")]
         [SerializeField] private int _playerScore;
         public int PlayerScore { get { return _playerScore; } }
@@ -76,7 +79,7 @@ namespace InfinityRunner.Manager
             {
                 if(_playerScore >= _scoreToChangeDifficult[difficult])
                 {
-                    DifficultManager.Instance.IncreaseDifficult();
+                    if(OnIncreaseDifficult != null) { OnIncreaseDifficult(); }
                     break;
                 }
             }

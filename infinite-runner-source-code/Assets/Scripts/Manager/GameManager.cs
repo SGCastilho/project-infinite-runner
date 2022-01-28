@@ -23,8 +23,9 @@ namespace InfinityRunner.Manager
 
         public void RunFinish()
         {
-            _finalPlayerScore = ScoreManager.Instace.PlayerScore;      
-            ScoreManager.Instace.enabled = false;
+            _finalPlayerScore = ScoreManager.Instace.PlayerScore;
+
+            ScoreManager.Instace.enabled = false;      
 
             CheckPlayerRank();
 

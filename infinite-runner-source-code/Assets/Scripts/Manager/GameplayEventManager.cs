@@ -11,6 +11,7 @@ namespace InfinityRunner.Manager
         [Header("Cache Manager Scripts")]
         [SerializeField] private GameManager _gameManager;
         [SerializeField] private ScoreManager _scoreManager;
+        [SerializeField] private InfiniteRunGenerationManager _infiniteRunGenerationManager;
         [SerializeField] private DifficultManager _difficultManager;
 
         [Header("HUD Manager Scripts")]
@@ -27,7 +28,12 @@ namespace InfinityRunner.Manager
             _playerBehaviour.OnPlayerDead += _gameManager.RunFinish;
 
             _scoreManager.OnScoreIncrease += _gameplayHUD.RefreshScore;
+            _scoreManager.OnIncreaseDifficult += _difficultManager.IncreaseDifficult;
+
             _difficultManager.OnDifficultChange += _gameplayHUD.ShowDifficultInformation;
+            _difficultManager.OnIncreaseObjectGeneration += _infiniteRunGenerationManager.IncreaseObjectsGeneration;
+            _difficultManager.OnIncreasePlayerMovimentSpeed += _playerBehaviour.PlayerMoviment.IncreaseMovementSpeed;
+            _difficultManager.OnIncreasePassiveScore += _scoreManager.IncreasePassiveScore;
 
             _gameManager.OnFinishGame += _gameplayHUD.ShowFinishRunWindow;
         }
@@ -37,7 +43,12 @@ namespace InfinityRunner.Manager
             _playerBehaviour.OnPlayerDead -= _gameManager.RunFinish;
 
             _scoreManager.OnScoreIncrease -= _gameplayHUD.RefreshScore;
+            _scoreManager.OnIncreaseDifficult -= _difficultManager.IncreaseDifficult;
+
             _difficultManager.OnDifficultChange -= _gameplayHUD.ShowDifficultInformation;
+            _difficultManager.OnIncreaseObjectGeneration -= _infiniteRunGenerationManager.IncreaseObjectsGeneration;
+            _difficultManager.OnIncreasePlayerMovimentSpeed -= _playerBehaviour.PlayerMoviment.IncreaseMovementSpeed;
+            _difficultManager.OnIncreasePassiveScore -= _scoreManager.IncreasePassiveScore;
 
             _gameManager.OnFinishGame -= _gameplayHUD.ShowFinishRunWindow;
         }

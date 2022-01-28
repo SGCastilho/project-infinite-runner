@@ -1,6 +1,8 @@
 RunGenerationInfo
 
 Proximos passos:
+Tentar retirar todos os singletons que podemos substituir por events
+
 Criação do design do personagem principal
     -Criar conceito
     -Modelar

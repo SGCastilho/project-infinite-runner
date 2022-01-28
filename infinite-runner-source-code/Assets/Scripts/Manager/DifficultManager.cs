@@ -16,6 +16,15 @@ namespace InfinityRunner.Manager
             public string _generationKey;
             public int _generationIncrease;
         }
+        
+        public delegate void IncreasePlayerMovimentSpeed(float amount);
+        public event IncreasePlayerMovimentSpeed OnIncreasePlayerMovimentSpeed;
+
+        public delegate void IncreasePassiveScore();
+        public event IncreasePassiveScore OnIncreasePassiveScore;
+
+        public delegate void IncreaseObjectGeneration(int amount, string key);
+        public event IncreaseObjectGeneration OnIncreaseObjectGeneration;
 
         public delegate void DifficultChange();
         public event DifficultChange OnDifficultChange;
@@ -43,17 +52,17 @@ namespace InfinityRunner.Manager
         {
             if(_currentDifficult < _maxDifficult)
             {
-                PlayerBehaviour.Instance.PlayerMoviment.IncreaseMovementSpeed(_playerMovimentSpeedIncrease);
+                if(OnIncreasePlayerMovimentSpeed != null) { OnIncreasePlayerMovimentSpeed(_playerMovimentSpeedIncrease); }
 
                 for(int i = 0; i < _generationDifficult.Count; i++)
                 {
-                    InfiniteRunGenerationManager.Instance.IncreaseObjectsGeneration(_generationDifficult[i]._generationIncrease, 
-                    _generationDifficult[i]._generationKey);
+                    if(OnIncreaseObjectGeneration != null) 
+                    { OnIncreaseObjectGeneration(_generationDifficult[i]._generationIncrease, _generationDifficult[i]._generationKey); }
                 }
 
                 InfiniteRunGenerationManager.Instance.IncreaseHoleSize = _holeSizeIncrease;
 
-                ScoreManager.Instace.IncreasePassiveScore();
+                if(OnIncreasePassiveScore != null) { OnIncreasePassiveScore(); }
 
                 _currentDifficult++;
                 if(_currentDifficult > _maxDifficult) { _currentDifficult = _maxDifficult; }
